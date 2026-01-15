@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>İletişim - Şıkel Havlu</title>
+  <link rel="icon" type="image/png" href="icons/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">Şıkel Havlu</div>
+
+  <div class="header-actions">
+    <button id="cartBtn" class="cart-btn" aria-label="Sepet">
+      🛒 <span id="cartCount" class="cart-count">0</span>
+    </button>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Menüyü Aç" aria-expanded="false">☰</button>
+  </div>
+
+<nav id="mainNav" class="main-nav">
+  <a href="index.html">Ana Sayfa</a>
+
+  <!-- ✅ Ürünler Dropdown -->
+  <div class="nav-dd" id="productsNav">
+    <button class="nav-dd-btn" id="productsNavBtn" aria-expanded="false" aria-haspopup="true">
+      Ürünler <span class="nav-dd-caret">▾</span>
+    </button>
+
+    <div class="nav-dd-menu" id="productsNavMenu" role="menu" aria-label="Ürünler Menüsü">
+      <a role="menuitem" href="urunler.html#hepsi">Tüm Ürünler</a>
+      <a role="menuitem" href="urunler.html#nevresim">Nevresim</a>
+      <a role="menuitem" href="urunler.html#bornoz">Bornoz</a>
+      <a role="menuitem" href="urunler.html#havlu">Havlu</a>
+    </div>
+  </div>
+
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="iletisim.html">İletişim</a>
+</nav>
+
+</header>
+
+<main>
+  <section class="iletisim-hero">
+    <h1>Bizimle İletişime Geçin</h1>
+    <p>Her türlü soru ve bilgi için formu doldurabilirsiniz.</p>
+  </section>
+
+  <section class="iletisim-container">
+
+    <div class="iletisim-form">
+      <h2>İletişim Formu</h2>
+
+      <form id="contactForm">
+        <label for="name">Ad Soyad</label>
+        <input id="name" type="text" name="name" required />
+
+        <label for="email">E-Mail</label>
+        <input id="email" type="email" name="email" required />
+
+        <label for="subject">Konu</label>
+        <input id="subject" type="text" name="subject" required />
+
+        <label for="message">Mesajınız</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Gönder</button>
+      </form>
+    </div>
+
+    <div class="iletisim-bilgi">
+      <h2>İletişim Bilgileri</h2>
+
+      <p><strong>Adres:</strong><br />Denizli / Türkiye</p>
+      <p><strong>Telefon:</strong><br />+90 555 555 55 55</p>
+      <p><strong>E-Mail:</strong><br />info@sikelhavlu.com</p>
+
+      <h3>Konum</h3>
+      <iframe
+        title="Şıkel Havlu Konum"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.4535667910197!2d28.86792837644867!3d38.03780007190799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c77ac700000001%3A0x5f2b20146abfffc7!2sDemirel%20Tekstil%20-%20%C5%9E%C4%B1kel%20Towel%20-%20%C5%9E%C4%B1kel%20Tekstil%20-%20%C5%9E%C4%B1kel%20Havlu!5e0!3m2!1str!2str!4v1731429886809!5m2!1str!2str"
+        width="100%"
+        height="250"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      <h2>Şıkel Havlu</h2>
+      <p>Kalitenin Dokunuşu</p>
+    </div>
+
+    <div class="footer-menu">
+      <h3>Hızlı Menü</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="urunler.html">Ürünler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+
+    <div class="footer-social">
+      <h3>Sosyal Medya</h3>
+      <div class="icons">
+        <a href="#" aria-label="Facebook"><img src="icons/facebook.png" alt="Facebook" /></a>
+        <a href="#" aria-label="Instagram"><img src="icons/instagram.png" alt="Instagram" /></a>
+        <a href="#" aria-label="X"><img src="icons/x.png" alt="X" /></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Şıkel Havlu | Tüm Hakları Saklıdır
+  </div>
+</footer>
+
+<!-- Sepet Modal (tüm sayfalarda dursun) -->
+<div id="cartModal" class="cmodal" aria-hidden="true">
+  <div class="cmodal-backdrop" data-cart-close="1"></div>
+
+  <div class="cmodal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="cartTitle">
+
+    <button id="cartClose"
+            class="cmodal-close"
+            aria-label="Kapat">✕</button>
+
+    <h2 id="cartTitle">Sepet</h2>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        Toplam: <strong id="cartTotal">0 TL</strong>
+      </div>
+
+      <button id="cartClear"
+              class="cart-clear">
+        Sepeti Temizle
+      </button>
+
+      <button id="cartCheckout"
+              class="cart-checkout">
+        Satın Al
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

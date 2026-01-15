@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ürünler - Şıkel Havlu</title>
+  <link rel="icon" type="image/png" href="icons/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<header>
+  <div class="logo">Şıkel Havlu</div>
+
+  <div class="header-actions">
+    <!-- Sepet -->
+    <button id="cartBtn" class="cart-btn" aria-label="Sepeti Aç">
+      Sepet <span id="cartCount" class="cart-count">0</span>
+    </button>
+
+    <!-- HAMBURGER -->
+    <button id="navToggle" class="nav-toggle" aria-label="Menüyü Aç" aria-expanded="false">☰</button>
+
+    <!-- NAV -->
+  <nav id="mainNav" class="main-nav">
+  <a href="index.html">Ana Sayfa</a>
+
+  <!-- ✅ Ürünler Dropdown -->
+  <div class="nav-dd" id="productsNav">
+    <button class="nav-dd-btn" id="productsNavBtn" aria-expanded="false" aria-haspopup="true">
+      Ürünler <span class="nav-dd-caret">▾</span>
+    </button>
+
+    <div class="nav-dd-menu" id="productsNavMenu" role="menu" aria-label="Ürünler Menüsü">
+      <a role="menuitem" href="urunler.html#hepsi">Tüm Ürünler</a>
+      <a role="menuitem" href="urunler.html#nevresim">Nevresim</a>
+      <a role="menuitem" href="urunler.html#bornoz">Bornoz</a>
+      <a role="menuitem" href="urunler.html#havlu">Havlu</a>
+    </div>
+  </div>
+
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="iletisim.html">İletişim</a>
+</nav>
+
+</header>
+
+<section class="urunler">
+  <h2>Ürünlerimiz</h2>
+
+  <div class="product-toolbar">
+    <button class="filter-btn active" data-filter="Hepsi">Hepsi</button>
+    <button class="filter-btn" data-filter="Nevresim">Nevresim</button>
+    <button class="filter-btn" data-filter="Bornoz">Bornoz</button>
+    <button class="filter-btn" data-filter="Havlu">Havlu</button>
+  </div>
+
+  <div class="urun-grid" id="productGrid"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>Şıkel Havlu</h2>
+      <p>Kalitenin Dokunuşu</p>
+    </div>
+
+    <div class="footer-menu">
+      <h3>Hızlı Menü</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="urunler.html">Ürünler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+
+    <div class="footer-social">
+      <h3>Sosyal Medya</h3>
+      <div class="icons">
+        <a href="#"><img src="icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="icons/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="icons/x.png" alt="X"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Şıkel Havlu | Tüm Hakları Saklıdır
+  </div>
+</footer>
+
+<!-- Ürün Detay Modal -->
+<div id="productModal" class="pmodal" aria-hidden="true">
+  <div class="pmodal-backdrop" data-close="1"></div>
+
+  <div class="pmodal-card" role="dialog" aria-modal="true" aria-labelledby="pmodalTitle">
+    <button id="pmodalClose" class="pmodal-close" aria-label="Kapat">✕</button>
+
+    <div class="pmodal-body">
+      <div class="pmodal-left">
+        <img id="pmodalImg" src="" alt="">
+      </div>
+
+      <div class="pmodal-right">
+        <h2 id="pmodalTitle"></h2>
+        <div id="pmodalMaterial" class="pmodal-line"></div>
+
+        <!-- Badge -->
+        <div id="pmodalBadges" class="pmodal-badges">
+          <span id="pmodalFamilyBadge" class="pmodal-badge" style="display:none;">Aile Seti</span>
+        </div>
+
+        <div id="pmodalDesc" class="pmodal-desc"></div>
+
+        <!-- Aile Seti İçeriği -->
+        <div id="pmodalFamilyWrap" style="display:none;">
+          <div class="pmodal-label">Aile Seti İçeriği</div>
+          <ul id="pmodalFamilyList"></ul>
+          <div class="pmodal-family-note">👨‍👩‍👧‍👦 Çiftler ve aileler için ideal.</div>
+        </div>
+
+        <!-- Boyutlar -->
+        <div id="pmodalSizesWrap" class="pmodal-sizes" style="display:none;">
+          <div class="pmodal-label">Boyut Seçimi</div>
+          <div id="pmodalSizes" class="pmodal-size-row"></div>
+        </div>
+
+        <!-- Renkler -->
+        <div id="pmodalColorsWrap" style="display:none;">
+          <div class="pmodal-label">Renk Seçimi</div>
+          <div id="pmodalColors" class="pmodal-color-row"></div>
+        </div>
+
+        <!-- Fiyat -->
+        <div class="pmodal-label">Fiyat</div>
+        <div id="pmodalPrices" class="pmodal-prices"></div>
+
+        <button id="addToCartBtn" class="add-cart-btn">Sepete Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sepet Modal (tüm sayfalarda dursun) -->
+<div id="cartModal" class="cmodal" aria-hidden="true">
+  <div class="cmodal-backdrop" data-cart-close="1"></div>
+
+  <div class="cmodal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="cartTitle">
+
+    <button id="cartClose"
+            class="cmodal-close"
+            aria-label="Kapat">✕</button>
+
+    <h2 id="cartTitle">Sepet</h2>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        Toplam: <strong id="cartTotal">0 TL</strong>
+      </div>
+
+      <button id="cartClear"
+              class="cart-clear">
+        Sepeti Temizle
+      </button>
+
+      <button id="cartCheckout"
+              class="cart-checkout">
+        Satın Al
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

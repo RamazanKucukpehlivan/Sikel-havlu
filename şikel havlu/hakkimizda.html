@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hakkımızda - Şıkel Havlu</title>
+  <link rel="icon" type="image/png" href="icons/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="logo">Şıkel Havlu</div>
+
+  <div class="header-actions">
+    <button id="cartBtn" class="cart-btn" aria-label="Sepet">
+      🛒 <span id="cartCount" class="cart-count">0</span>
+    </button>
+
+    <button id="navToggle" class="nav-toggle" aria-label="Menüyü Aç" aria-expanded="false">☰</button>
+  </div>
+
+<nav id="mainNav" class="main-nav">
+  <a href="index.html">Ana Sayfa</a>
+
+  <!-- ✅ Ürünler Dropdown -->
+  <div class="nav-dd" id="productsNav">
+    <button class="nav-dd-btn" id="productsNavBtn" aria-expanded="false" aria-haspopup="true">
+      Ürünler <span class="nav-dd-caret">▾</span>
+    </button>
+
+    <div class="nav-dd-menu" id="productsNavMenu" role="menu" aria-label="Ürünler Menüsü">
+      <a role="menuitem" href="urunler.html#hepsi">Tüm Ürünler</a>
+      <a role="menuitem" href="urunler.html#nevresim">Nevresim</a>
+      <a role="menuitem" href="urunler.html#bornoz">Bornoz</a>
+      <a role="menuitem" href="urunler.html#havlu">Havlu</a>
+    </div>
+  </div>
+
+  <a href="hakkimizda.html">Hakkımızda</a>
+  <a href="iletisim.html">İletişim</a>
+</nav>
+
+</header>
+
+<main>
+  <section class="hakkimizda-hero">
+    <h1>Şıkel Havlu</h1>
+    <p>Kalitenin Dokunuşu</p>
+  </section>
+
+  <section class="hakkimizda-icerik">
+    <div class="hakkimizda-kutu">
+      <h2>Hakkımızda</h2>
+
+      <p>
+        Şıkel Havlu olarak ev tekstili sektöründe kalite, güven ve estetikten ödün vermeden hizmet vermekteyiz.
+        Ürünlerimizin tamamı yüksek kalite pamuklardan üretilmekte olup, yumuşaklık ve dayanıklılık açısından üst seviye performans sunar.
+      </p>
+
+      <p>
+        Havlu, bornoz, nevresim takımları ve diğer tekstil ürünlerimiz; modern tasarım çizgisi, özenli işçilik ve kalite odaklı üretim anlayışıyla hazırlanır.
+        Her zevke hitap eden geniş ürün yelpazemiz, konforu ve şıklığı bir arada sunar.
+      </p>
+
+      <p>
+        Şıkel Havlu olarak hedefimiz, evlerinize değer katacak ürünleri en uygun fiyatlarla ve en yüksek kaliteyle ulaştırmaktır.
+        Müşteri memnuniyeti prensibiyle tüm süreçlerimizde titizlikle çalışmaya devam ediyoruz.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-logo">
+      <h2>Şıkel Havlu</h2>
+      <p>Kalitenin Dokunuşu</p>
+    </div>
+
+    <div class="footer-menu">
+      <h3>Hızlı Menü</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="urunler.html">Ürünler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+    </div>
+
+    <div class="footer-social">
+      <h3>Sosyal Medya</h3>
+      <div class="icons">
+        <a href="#" aria-label="Facebook"><img src="icons/facebook.png" alt="Facebook" /></a>
+        <a href="#" aria-label="Instagram"><img src="icons/instagram.png" alt="Instagram" /></a>
+        <a href="#" aria-label="X"><img src="icons/x.png" alt="X" /></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Şıkel Havlu | Tüm Hakları Saklıdır
+  </div>
+</footer>
+
+<!-- Sepet Modal (tüm sayfalarda dursun) -->
+<div id="cartModal" class="cmodal" aria-hidden="true">
+  <div class="cmodal-backdrop" data-cart-close="1"></div>
+
+  <div class="cmodal-card"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="cartTitle">
+
+    <button id="cartClose"
+            class="cmodal-close"
+            aria-label="Kapat">✕</button>
+
+    <h2 id="cartTitle">Sepet</h2>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        Toplam: <strong id="cartTotal">0 TL</strong>
+      </div>
+
+      <button id="cartClear"
+              class="cart-clear">
+        Sepeti Temizle
+      </button>
+
+      <button id="cartCheckout"
+              class="cart-checkout">
+        Satın Al
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
